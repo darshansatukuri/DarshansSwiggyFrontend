@@ -165,12 +165,11 @@ const handleRegionChange= (event)=>{
             <label>Firm Image</label>
             <input type="file" onChange={handleImageUpload }/>
             <br/>
-            <button type="button" className="button" type="submit">
-  <div class="button-top">Submit</div>
-  <div class="button-bottom"></div>
-  <div class="button-base"></div>
+            <button  className="button" type="submit">
+  <div className="button-top">Submit</div>
+  <div className="button-bottom"></div>
+  <div className="button-base"></div>
 </button>
-      <br/>
         </form>
     </div>
   )
