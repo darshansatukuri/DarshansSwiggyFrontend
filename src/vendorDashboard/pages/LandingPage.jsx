@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Navbar from '../components/forms/NavBar'
+import NavBar from '../components/NavBar'
 import SideBar from '../components/SideBar'
 import Login from '../components/forms/Login'
 import Register from '../components/forms/Register'
@@ -134,7 +134,7 @@ useEffect(()=>{
   return (
    <>
    <section className="landingSection">
-      <Navbar showLoginHandler={showLoginHandler}  showRegisterHandler={showRegisterHandler} showLogout={showLogout} showLogoutHandler={showLogoutHandler}/>
+      <NavBar showLoginHandler={showLoginHandler}  showRegisterHandler={showRegisterHandler} showLogout={showLogout} showLogoutHandler={showLogoutHandler}/>
       <div className="collectionSection">
         <SideBar   showAddFirmHandler={showAddFirmHandler} showAddProductHandler={showAddProductHandler} showAllProductsHandler={showAllProductsHandler} showAddTitle={showAddTitle}/>
         {showLogin &&   <Login  showWelComeHandler={showWelComeHandler}/> }
