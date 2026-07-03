@@ -56,10 +56,10 @@ const handleSubmit = async(e)=>{
         <input type="password" name="password"     value={password} placeholder="enter your password" onChange={(e)=>setPassword(e.target.value)}/>
          <br/>
              
-<button type="button" class="button" type="submit">
-  <div class="button-top">Submit</div>
-  <div class="button-bottom"></div>
-  <div class="button-base"></div>
+<button type="button" className="button" type="submit">
+  <div className="button-top">Submit</div>
+  <div className="button-bottom"></div>
+  <div className="button-base"></div>
 </button>
       <br/>
     </form>
