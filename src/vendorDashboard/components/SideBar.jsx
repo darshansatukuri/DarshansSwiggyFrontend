@@ -8,7 +8,7 @@ const SideBar = ({showAddFirmHandler,showAddProductHandler,showAllProductsHandle
        
         <li onClick={showAddProductHandler}>Add product</li>
         <li onClick={showAllProductsHandler}>All Products</li>
-        <li>User Details</li>
+        <li>User Manual</li>
     </ul>
    </div>
   )

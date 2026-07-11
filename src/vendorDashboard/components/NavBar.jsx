@@ -9,7 +9,7 @@ const NavBar = ({showLoginHandler,showRegisterHandler,showLogout,showLogoutHandl
             Vendor Dashboard
         </div>
         <div className="firmName">
-            <h4>FirmName: {firmName}</h4>
+            <h4 className="firmName">FirmName: {firmName}</h4>
         </div>
 
         <div className="userAuth">
