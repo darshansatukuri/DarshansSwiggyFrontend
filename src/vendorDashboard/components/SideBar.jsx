@@ -8,7 +8,7 @@ const SideBar = ({showAddFirmHandler,showAddProductHandler,showAllProductsHandle
        
         <li onClick={showAddProductHandler}>Add product</li>
         <li onClick={showAllProductsHandler}>All Products</li>
-        <li>User Manual</li>
+        <li><a href="https://drive.google.com/file/d/1uRvwLju56sUocmoUNvzGqgoLKMhTbVXu/view?usp=drivesdk" target="_blank" className="UserManualDsn">User Manual</a></li>
     </ul>
    </div>
   )
