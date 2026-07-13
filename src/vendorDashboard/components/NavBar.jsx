@@ -1,24 +1,30 @@
 import React from 'react'
 
-const NavBar = ({showLoginHandler,showRegisterHandler,showLogout,showLogoutHandler}) => {
+const NavBar = ({showLoginHandler,showRegisterHandler,showLogout,showLogoutHandler, onMenuToggle}) => {
   const firmName = localStorage.getItem('firmName')
  
   return (
     <div className="navSection">
+        <button 
+          className="hamburger-toggle" 
+          onClick={onMenuToggle}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
         <div className="company">
             Vendor Dashboard
         </div>
         <div className="firmName">
-            <h4 className="firmName">FirmName: {firmName}</h4>
+            <h4 className="firmName">FirmName: {firmName || 'Not Set'}</h4>
         </div>
 
         <div className="userAuth">
           {showLogout ? (<span onClick={showLogoutHandler}>Logout</span>):( <>
-            <span onClick={showLoginHandler}>Login /</span>
+            <span onClick={showLoginHandler}>Login</span>
+            <span>/</span>
             <span onClick={showRegisterHandler}>Register</span>
             </>)}
-         
-            
         </div>
     </div>
   )

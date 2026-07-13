@@ -20,13 +20,14 @@ const getAllProducts = async()=>{
 
 const deleteProductById = async(productId) => {
     console.log(productId)
+    if(!confirm("Are you sure you want to delete this product?")) return;
+    
     try{
         const deleteResponse = await fetch(`${API_URL}/product/${productId}`,{
             method:"DELETE" })
             console.log(deleteResponse)
         if(deleteResponse.ok){
             setProducts(products.filter((product)=>product._id !== productId))
-            confirm("Are you sure you want to delete this product?");
             alert("Product deleted successfully")
         }
         
@@ -46,29 +47,45 @@ useEffect(()=>{
 
     return (
     <>
-    {!products ? (<p>No Products added</p>) : (
-       <table className="product-table">
-         <thead>
-           <tr>
-             <th>Product Name</th>
-             <th>Price</th>
-             <th>Image</th>
-             <th>Delete</th>
-           </tr>
-         </thead>
-         <tbody>
-            {products.map((item)=>{
-                return (<tr key={item._id}>
-                          <td>{item.productName}</td>
-                          <td>{item.price}</td>
-                          <td>
-                              {item.image && (<img src={`${API_URL}/uploads/${item.image}`} alt={item.productName} style={{width: '100px', height: '100px'}} />)}
-                          </td>
-                          <td><button onClick={()=> deleteProductById(item._id)}>Delete</button></td>
-                      </tr>
-                      )}) }
-         </tbody>
-       </table>
+    {!products || products.length === 0 ? (
+        <div style={{padding:'20px', width:'100%', textAlign:'center'}}>
+            <p>No Products added</p>
+        </div>
+    ) : (
+       <div className="product-table-wrapper">
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+               {products.map((item)=>{
+                   return (<tr key={item._id}>
+                             <td>{item.productName}</td>
+                             <td>₹{item.price}</td>
+                             <td>
+                                 {item.image && (
+                                     <img 
+                                         src={`${API_URL}/uploads/${item.image}`} 
+                                         alt={item.productName} 
+                                         style={{width: '80px', height: '80px', objectFit:'cover', borderRadius:'4px'}} 
+                                     />
+                                 )}
+                             </td>
+                             <td><button className="button" onClick={()=> deleteProductById(item._id)}>
+                               <div className="button-top">Delete</div>
+                               <div className="button-bottom"></div>
+                               <div className="button-base"></div>
+                             </button></td>
+                         </tr>
+                         )}) }
+            </tbody>
+          </table>
+       </div>
     )}
     </>
   )
